@@ -1,0 +1,8 @@
+entities\Post.class
+entities\UserEventId.class
+entities\Comment.class
+contracts\UserRemote.class
+entities\User.class
+services\UserCrudService.class
+entities\UserEvent.class
+entities\Event.class
