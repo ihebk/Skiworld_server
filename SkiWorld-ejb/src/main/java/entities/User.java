@@ -39,6 +39,9 @@ public class User implements Serializable {
 	
 	@OneToMany(mappedBy="event")
 	private List<UserEvent> userevent;
+	@OneToMany(mappedBy="training")
+	private List<UserTraining> usertraining;
+	
 
 	public User() {
 		super();
