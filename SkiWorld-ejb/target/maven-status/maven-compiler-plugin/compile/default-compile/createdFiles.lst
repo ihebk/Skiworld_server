@@ -2,8 +2,10 @@ entities\Post.class
 entities\UserTraining.class
 entities\UserTrainingId.class
 services\UserCrudService.class
+contracts\HotelCrudEJBLocal.class
 entities\Store.class
 entities\Comment.class
+services\HotelCrudEJB.class
 entities\StoreClothes.class
 contracts\UserRemote.class
 entities\User.class
@@ -11,6 +13,7 @@ entities\UserEvent.class
 entities\Piste.class
 entities\UserEventId.class
 entities\ResortEventId.class
+contracts\HotelCrudEJBRemote.class
 entities\Equipments.class
 entities\ResortEvent.class
 entities\Hotel.class

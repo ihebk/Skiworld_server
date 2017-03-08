@@ -15,7 +15,7 @@ public class UserCrudService implements UserRemote {
 	@Override
 	public boolean addUser(User user) {
 		entitymanager.persist(user);
-		
+		int a =2;
 		return false;
 	}
 
