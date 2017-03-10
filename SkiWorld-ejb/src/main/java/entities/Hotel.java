@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.sql.Blob;
+
 import javax.persistence.*;
 
 /**
@@ -20,6 +22,8 @@ public class Hotel implements Serializable {
 	private String description;
 	private int capacity;
 	private float rating;
+	@Lob
+	private byte[] image;
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
@@ -53,6 +57,12 @@ public class Hotel implements Serializable {
 		return this.capacity;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}   
@@ -63,5 +73,6 @@ public class Hotel implements Serializable {
 	public void setRating(float rating) {
 		this.rating = rating;
 	}
+
    
 }

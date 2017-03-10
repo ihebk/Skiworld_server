@@ -56,6 +56,12 @@ public class HotelCrudEJB implements HotelCrudEJBRemote, HotelCrudEJBLocal {
 	public List<Hotel> findAllHotels() {
 			return entityManager.createQuery("SELECT h FROM Hotel h",Hotel.class).getResultList();
 		}
+
+	@Override
+	public List<Hotel> findAllHotelsLocal() {
+		// TODO Auto-generated method stub
+		return entityManager.createQuery("SELECT h FROM Hotel h",Hotel.class).getResultList();
+	}
 	}
 
 
