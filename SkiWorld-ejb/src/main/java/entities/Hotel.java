@@ -26,9 +26,15 @@ public class Hotel implements Serializable {
 	private byte[] image;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
 	private Resort resort;
 
+	public Resort getResort() {
+		return resort;
+	}
+	public void setResort(Resort resort) {
+		this.resort = resort;
+	}
 	public Hotel() {
 		super();
 	}   

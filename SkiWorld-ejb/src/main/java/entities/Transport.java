@@ -16,11 +16,40 @@ public class Transport implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTransport;
+	private String description;
 	private String type;
+	private float bookingPrice;
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public float getBookingPrice() {
+		return bookingPrice;
+	}
+	public void setBookingPrice(float bookingPrice) {
+		this.bookingPrice = bookingPrice;
+	}
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	public Resort getResort() {
+		return resort;
+	}
+	public void setResort(Resort resort) {
+		this.resort = resort;
+	}
+
 	private int capacity;
+	@Lob
+	private byte[] image;
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
 	private Resort resort;
 
 	public Transport() {

@@ -35,8 +35,8 @@ public class Resort implements Serializable {
 	@OneToMany(mappedBy="resort")
 	private List<Transport> transport;
 	
-	@OneToMany(mappedBy="event")
-	private List<ResortEvent> resortevent;
+	@OneToMany(mappedBy="resort")
+	private List<Event> events;
 	
 	@OneToMany(mappedBy="resort")
 	private List<Training> training;

@@ -9,6 +9,5 @@ import entities.Hotel;
 @Local
 public interface HotelCrudEJBLocal {
 
-	public List<Hotel> findAllHotelsLocal();
 
 }

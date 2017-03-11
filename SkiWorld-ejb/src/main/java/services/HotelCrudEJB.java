@@ -27,7 +27,7 @@ public class HotelCrudEJB implements HotelCrudEJBRemote, HotelCrudEJBLocal {
 
 	@Override
 	public void addHotel(Hotel hotel) {
-		entityManager.persist(hotel);
+		entityManager.persist(entityManager.merge(hotel));
 	}
 
 	@Override
@@ -48,8 +48,7 @@ public class HotelCrudEJB implements HotelCrudEJBRemote, HotelCrudEJBLocal {
 
 	@Override
 	public Hotel findHotelByLabel(String label) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("select h from Hotel h where h.name=:hname", Hotel.class).setParameter("hname", label).getSingleResult();
 	}
 
 	@Override
@@ -57,11 +56,6 @@ public class HotelCrudEJB implements HotelCrudEJBRemote, HotelCrudEJBLocal {
 			return entityManager.createQuery("SELECT h FROM Hotel h",Hotel.class).getResultList();
 		}
 
-	@Override
-	public List<Hotel> findAllHotelsLocal() {
-		// TODO Auto-generated method stub
-		return entityManager.createQuery("SELECT h FROM Hotel h",Hotel.class).getResultList();
-	}
 	}
 
 
