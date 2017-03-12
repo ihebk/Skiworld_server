@@ -1,5 +1,6 @@
 contracts\TransportCrudEJBLocal.class
 entities\Post.class
+contracts\PisteCrudEJBRemote.class
 entities\UserTraining.class
 entities\UserTrainingId.class
 services\TransportCrudEJB.class
@@ -7,6 +8,8 @@ contracts\HotelCrudEJBLocal.class
 entities\Store.class
 contracts\ResortCrudEJBLocal.class
 contracts\TransportCrudEJBRemote.class
+contracts\PisteCrudEJBLocal.class
+services\PisteCrudEJB.class
 entities\Comment.class
 services\HotelCrudEJB.class
 entities\StoreClothes.class

@@ -1,4 +1,5 @@
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\contracts\HotelCrudEJBLocal.java
+C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\contracts\PisteCrudEJBRemote.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\StoreEquipmentsId.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Piste.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\UserEvent.java
@@ -6,6 +7,7 @@ C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Transport.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Post.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\StoreClothes.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Hotel.java
+C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\contracts\PisteCrudEJBLocal.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\services\ResortCrudEJB.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Resort.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\contracts\ResortCrudEJBLocal.java
@@ -13,6 +15,7 @@ C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\services\HotelCrudEJB.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Equipments.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\UserTraining.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\contracts\ResortCrudEJBRemote.java
+C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\services\PisteCrudEJB.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\Clothes.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\UserTrainingId.java
 C:\JEE\workspace\SkiWorld\SkiWorld-ejb\src\main\java\entities\StoreClothesId.java

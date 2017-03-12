@@ -19,8 +19,10 @@ public class Piste implements Serializable {
 	private String name;
 	private String description;
 	private String type;
+	@Lob
+	private byte[] image;
 	private static final long serialVersionUID = 1L;
-	@OneToOne
+	@OneToOne(mappedBy ="piste",cascade = CascadeType.ALL)
 	private Resort resort;
 
 	public Piste() {
@@ -37,6 +39,18 @@ public class Piste implements Serializable {
 		return this.name;
 	}
 
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	public Resort getResort() {
+		return resort;
+	}
+	public void setResort(Resort resort) {
+		this.resort = resort;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}   
