@@ -26,8 +26,8 @@ public class Resort implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@OneToOne
 	private Store store;
-	@OneToOne
-	private Piste piste;
+	@OneToMany(mappedBy="resort")
+	private List<Piste> pistes;
 	
 	@OneToMany(mappedBy="resort")
 	private List<Hotel> hotels;
@@ -77,11 +77,17 @@ public class Resort implements Serializable {
 		return this.rating;
 	}
 
-	public Piste getPiste() {
-		return piste;
+	public Store getStore() {
+		return store;
 	}
-	public void setPiste(Piste piste) {
-		this.piste = piste;
+	public void setStore(Store store) {
+		this.store = store;
+	}
+	public List<Piste> getPistes() {
+		return pistes;
+	}
+	public void setPistes(List<Piste> pistes) {
+		this.pistes = pistes;
 	}
 	public void setRating(float rating) {
 		this.rating = rating;

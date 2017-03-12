@@ -22,7 +22,7 @@ public class Piste implements Serializable {
 	@Lob
 	private byte[] image;
 	private static final long serialVersionUID = 1L;
-	@OneToOne(mappedBy ="piste",cascade = CascadeType.ALL)
+	@ManyToOne(cascade={CascadeType.PERSIST,CascadeType.MERGE})
 	private Resort resort;
 
 	public Piste() {
