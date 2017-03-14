@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
+                	
+			<ui:define name="pageTitle">Wishlist</ui:define>		
+			<ui:define name="pageWork">
+			
+			<h:form id="form">
+    <p:carousel value="#{clothesBean_i.liste}" headerText="My Wishlist" var="cl" itemStyle="text-align:center" responsive="true">
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            <f:facet name="header">
+                <p:graphicImage name="demo/images/car/#{cl.image}.gif"/> 
+            </f:facet>
+ 
+            <h:outputText value="Id:" />
+            <h:outputText value="#{cl.idClothes}" />
+ 
+            <h:outputText value="Year" />
+            <h:outputText value="#{cl.name}" />
+ 
+            <h:outputText value="Color:" />
+            <h:outputText value="#{cl.description}"/>
+ 
+            <h:outputText value="Price" />
+            <h:outputText value="$#{cl.price}" />
+        </p:panelGrid>
+ 
+        <f:facet name="footer">
+                In total there are #{clothesBean_i.liste.size()} clothes.
+        </f:facet>
+    </p:carousel>
+    </h:form>
+			
+			
+			</ui:define>
+</ui:composition>

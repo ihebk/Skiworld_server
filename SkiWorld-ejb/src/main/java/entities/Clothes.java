@@ -23,8 +23,12 @@ public class Clothes implements Serializable {
 	private float price;
 	private String description;
 	private float deal;
+	private int quantity;
+	@Lob
+	private byte[] image;
 	private static final long serialVersionUID = 1L;
-	
+	@ManyToOne
+	private Store store;
 	@OneToMany(mappedBy="stores")
 	private List<StoreClothes> storeclothes;
 
@@ -42,6 +46,12 @@ public class Clothes implements Serializable {
 		return this.name;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public void setName(String name) {
 		this.name = name;
 	}   
@@ -73,5 +83,46 @@ public class Clothes implements Serializable {
 	public void setDeal(float deal) {
 		this.deal = deal;
 	}
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+	public Store getStore() {
+		return store;
+	}
+	public void setStore(Store store) {
+		this.store = store;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idClothes;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Clothes other = (Clothes) obj;
+		if (idClothes != other.idClothes)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+	
+	
+	
    
 }

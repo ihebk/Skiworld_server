@@ -44,7 +44,7 @@ public class Transport implements Serializable {
 		this.resort = resort;
 	}
 
-	private int capacity;
+	
 	@Lob
 	private byte[] image;
 	private static final long serialVersionUID = 1L;
@@ -69,12 +69,6 @@ public class Transport implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}   
-	public int getCapacity() {
-		return this.capacity;
-	}
 
-	public void setCapacity(int capacity) {
-		this.capacity = capacity;
-	}
    
 }

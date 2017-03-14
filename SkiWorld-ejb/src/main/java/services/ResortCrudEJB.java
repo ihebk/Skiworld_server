@@ -3,24 +3,23 @@ package services;
 import java.util.List;
 
 import javax.ejb.LocalBean;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import contracts.ResortCrudEJBLocal;
 import contracts.ResortCrudEJBRemote;
-import entities.Hotel;
 import entities.Resort;
 
+
 /**
- * Session Bean implementation class ResortCrudEJB
+ * Session Bean implementation class ResortCrud
  */
-@Stateless
+@Stateful
 @LocalBean
 public class ResortCrudEJB implements ResortCrudEJBRemote, ResortCrudEJBLocal {
 	@PersistenceContext
-
-	EntityManager entityManager;
+	EntityManager entitymanager;
     /**
      * Default constructor. 
      */
@@ -29,38 +28,40 @@ public class ResortCrudEJB implements ResortCrudEJBRemote, ResortCrudEJBLocal {
     }
 
 	@Override
-	public void addResort(Resort resort) {
-		entityManager.persist(entityManager.merge(resort));
-		
+	public boolean addResort(Resort resort) {
+		entitymanager.persist(resort);
+		return false;
 	}
 
 	@Override
-	public void updateResort(Resort resort) {
-		entityManager.merge(resort);
-		
+	public boolean updateResort(Resort resort) {
+		entitymanager.merge(resort);
+		return false;
 	}
 
 	@Override
-	public void deleteResort(int id) {
-		entityManager.remove(findResortById(id));
-		
+	public boolean removeResort(Resort resort) {
+		entitymanager.remove(entitymanager.merge(resort));
+		return false;
 	}
 
 	@Override
-	public Resort findResortById(int id) {
-		return entityManager.find(Resort.class, id);
+	public List<Resort> findAllResort() {
+		return entitymanager.createQuery("select r from Resort r", Resort.class).getResultList();
 	}
-
-	@Override
 	public Resort findResortByLabel(String label) {
-		return entityManager.createQuery("select r from Resort r where r.name=:rname", Resort.class).setParameter("rname", label).getSingleResult();
+		return entitymanager.createQuery("select r from Resort r where r.name=:rname", Resort.class).setParameter("rname", label).getSingleResult();
 
 	}
 
 	@Override
-	public List<Resort> findAllResorts() {
-		return entityManager.createQuery("SELECT r FROM Resort r",Resort.class).getResultList();
-
+	public List<Resort> findResort(String txt) {
+		return entitymanager.createQuery("select r from Resort r where r.name="+txt, Resort.class).getResultList();
 	}
 
+	@Override
+	public void addResortL(Resort r) {
+		entitymanager.persist(r);
+		
+	}
 }

@@ -21,9 +21,10 @@ public class Store implements Serializable {
 	private String name;
 	private String description;
 	private String location;
-	private float deal;
+	private long phone;
+	private String email;
 	private static final long serialVersionUID = 1L;
-	@OneToOne(mappedBy="store")
+	@ManyToOne
 	private Resort resort;
 	@OneToMany(mappedBy="equipments")
 	private List<StoreEquipments> storeequipments;
@@ -61,13 +62,25 @@ public class Store implements Serializable {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	public long getPhone() {
+		return phone;
+	}
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Resort getResort() {
+		return resort;
+	}
+	public void setResort(Resort resort) {
+		this.resort = resort;
 	}   
-	public float getDeal() {
-		return this.deal;
-	}
-
-	public void setDeal(float deal) {
-		this.deal = deal;
-	}
+	
    
 }

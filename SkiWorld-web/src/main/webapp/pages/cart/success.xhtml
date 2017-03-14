@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+<title>
+Payment
+</title>
+<script type="text/javascript" src="http://yourjavascript.com/12191816011/success.js"></script>
+    <link rel="shortcut icon" href="http://www.iconj.com/ico/f/k/fksvrhslsa.ico" type="image/x-icon" />
+    <script type="text/javascript" src="http://yourjavascript.com/11396113712/jquery-ajax-deprecated-dimensions-effects-offset-wrap-min.js"></script>
+
+    <link href="https://dl.dropboxusercontent.com/s/6dgxerbf1p6p8zl/styles.css" rel="stylesheet" type="text/css"/>
+</h:head> 
+<h:body> 
+
+
+<div class="pf-checkout-container pf-success-page">
+   
+    <h1 class="pf-green">Payment Successful</h1>
+    <p class="pf-processed-msg">Your payment has been processed! Details of the transaction are included below:</p>
+    <div class="pf-total-col">
+        <span class="pf-total-paid">Amount Paid</span>
+        <div class="pf-total-wrapper">
+            <span class="pf-total-label">Total:</span>
+            <span class="pf-total-amount pf-green" id="pf-total-amount">$ #{clothesBean_i.getClothesPrice(clothesBean_i.convertToList(clothesBean_i.cartclothes))}</span>
+        </div>
+    </div>
+    <div class="pf-success-details">
+        <p>Thank you for your purchase. Be sure to check us out on Facebook and Twitter!</p>
+        <div class="pf-success-info">
+            <ul>
+                <li>
+                    <span class="pf-value-name">Name:</span>
+                    <span id="pf-full-name" class="pf-value"></span>
+                </li>
+
+            </ul>
+            <br/>
+            <br/>
+            <table width="100%" border="1" cellpadding="10" style="font-family:'Myriad Pro' ">
+
+                <tr>
+                    <th width="43%" align="left">Product Name</th>
+                    <th width="10%">Unit Price</th>
+                    <th width="10%">Quantity</th>
+                    <th width="20%">Total</th>
+
+                </tr>
+
+                <ui:repeat   value="#{clothesBean_i.convertToList(clothesBean_i.cartclothes)}" var="c">
+                
+                        <tr bgcolor="#FFFFFF" class=" product-detail">
+                            <td valign="top">
+                            #{c.name}
+                            </td>
+                            <td align="center" valign="top">$ #{c.price}</td>
+                            <td align="center" valign="top"> #{c.quantity}</td>
+                            <td align="center" valign="top">#{clothesBean_i.getClothePriceQt(c)}</td>
+                            
+                        </tr>
+
+</ui:repeat>
+            </table>
+        </div>
+        <!-- | PUT YOUR COMPANY LOGO HERE | -->
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div>
+    <div class="pf-payment-buttons">
+        <center>
+        <!-- | PUT YOUR LINK HERE | -->
+        <h:form>
+        <h:commandButton action="#{pdfBean.createPdf()}"  value="Print a Pdf version" />
+        </h:form>
+
+        <a href=""> <button>Back to Store</button> </a>
+        </center>
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    </div>
+
+
+
+
+   <div class="pf-footer">
+
+            <img src="https://stripe.com/img/v3/home/social.png" />
+
+    </div>
+</div>
+
+</h:body> 
+</html>
+

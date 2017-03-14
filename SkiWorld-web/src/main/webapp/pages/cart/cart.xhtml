@@ -1,0 +1,205 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+                	
+			<ui:define name="pageTitle">Cart</ui:define>		
+			<ui:define name="pageWork">
+			
+				<div class="Block Moveable Panel Breadcrumb" id="CartBreadcrumb">
+	<ul>
+		<li><a href="http://outdoor-adventures-demo.mybigcommerce.com/">Home</a></li>
+		<li><a href="javascript:history.go(-1)">... Previous Page</a></li>
+		<li>Your Shopping Cart</li>
+	</ul>
+</div>
+
+	
+	
+		<div class="Content Widest M20" id="LayoutColumn1">
+			
+
+
+<div class="Block Moveable Panel" id="CartHeader">
+	<h1 class="title">
+		
+		Your Shopping Cart
+	</h1>
+	<h:form rendered="#{clothesBean_i.cartclothes.size() != 0}" >
+	<h:commandButton class="btn btn-secondary next" action="#{clothesBean_i.emptycart()}" value="Empty Cart" />
+	</h:form>
+</div>
+
+
+			<div class="Block Moveable Panel" id="CartStatusMessage" style="display:none;"></div>
+			<script type="text/javascript">
+lang.InvalidQuantity = "Please enter a valid product quantity.";
+lang.Calculating = "Estimating..."
+lang.CalculateShipping = "Estimate Shipping &amp; Tax"
+lang.ChooseShippingMethod = "Please choose a shipping method."
+lang.CartRemoveConfirm = 'Are you sure you want to remove this item from your cart?';
+lang.ConfirmRemoveGiftWrapping = 'Are you sure you want to remove the gift wrapping from this item?';
+lang.SelectCountry = 'Please choose your country.';
+lang.SelectState = 'Please choose a state/province.';
+lang.EnterZip = 'Please type in your zip/postcode.';
+</script>
+<script src="https://cdn3.bigcommerce.com/r-0bd749976fac028671301eca578f087a599db50e/javascript/jquery/plugins/imodal/imodal.js?" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ajaxComplete(function(event,request, settings) {
+		$.uniform.restore(".EstimateShipping select");	
+		$('.EstimateShipping select:visible, input[type=radio]').uniform();
+});
+
+</script>
+<div class="Block Moveable Panel" id="CartContent">
+	<div class="BlockContent">
+		<div style="display: " >
+			<form enctype="multipart/form-data" onsubmit="return Cart.ValidateQuantityForm(this);" action="cart.php" name="cartForm" id="cartForm" method="post">
+			<input type="hidden" name="action" value="update" />
+			<h:form>
+				<center><h:graphicImage value="/resources/images/empty-cart.jpg" rendered="#{clothesBean_i.cartclothes.size() == 0}" /></center>	
+			
+			</h:form>
+			<h:form id="all">
+			<table id="gt" class="CartContents Stylize General" cellspacing="0" cellpadding="0" style="display:#{clothesBean_i.convertToList(clothesBean_i.cartclothes)}">
+				<thead >
+					<tr >
+						<th colspan="2">Cart Items</th>
+						<th style="text-align: center; white-space: nowrap;">Item Price</th>
+						<th style="text-align: center; white-space: nowrap;">Quantity</th>
+						<th style="text-align: center; white-space: nowrap;">Total</th>
+						<th style="text-align: center; white-space: nowrap;">Remove Item</th>
+						
+					</tr>
+				</thead>
+	
+				
+				<tbody>
+			
+			
+<!-- 				AFFICHAGE PRODUIT -->
+<ui:repeat   value="#{clothesBean_i.convertToList(clothesBean_i.cartclothes)}" var="c">
+	<tr>
+		<td class="CartThumb" style="">
+			<a href="http://outdoor-adventures-demo.mybigcommerce.com/foam-rollup-mat/"><img src="https://cdn1.bigcommerce.com/server4200/36xna/products/88/images/274/bigstock_Sleep_Mat_4057796__32042.1366953539.178.178.jpg?c=2" /></a>&#160;
+		</td>
+		<td class="ProductName" colspan="1">
+			<h5><a href="http://outdoor-adventures-demo.mybigcommerce.com/foam-rollup-mat/">#{c.name}</a></h5>
+			<br />
+			
+		</td>
+		
+		<td align="center" class="CartItemIndividualPrice">
+			 $ #{c.price}
+		</td>
+		<td  id="qt" align="center" class="CartItemIndividualPrice">
+<!-- 		<h:form id="t"> -->
+		<h:outputLabel for="ajaxSpinner" value="" />
+        <p:outputPanel id="mypanel">
+            <p:spinner   id="ajaxSpinner" value="#{c.quantity}" min="1" max="100" immediate="true">
+                <p:ajax process="@this"  update="tot , :all:grandT" />
+            </p:spinner>
+<!--             <h:outputText id="ajaxSpinnerValue" value="#{clothesBean_i.getClothePriceQt(c)}" style="padding-left: 10px" /> -->
+        </p:outputPanel>
+<!-- 		</h:form> -->
+		</td>
+		
+		<td  align="center" class="CartItemIndividualPrice">
+		
+		<h:outputText id="tot" value="$ #{clothesBean_i.getClothePriceQt(c)}" />
+		
+		
+		
+		
+		</td>
+		<td align="center" >
+<!-- 		<h:form id="delete"> -->
+		<h:commandLink action="#{clothesBean_i.removeClothe(c)}">
+   		<h:graphicImage value="/resources/images/delete.png" />
+<!--    		 <f:actionListener binding="#{viewScopedBean.action()}"/> -->
+<!--    		 <f:actionListener binding="#{sessionScopedBean.action()}"/> -->
+		</h:commandLink>
+<!-- 		</h:form> -->
+		</td>
+		
+	</tr>
+	</ui:repeat>
+				</tbody>
+			<tfoot >
+					
+					<tr  class="SubTotal GrandTotal">
+						<td colspan="4">Grand Total:</td>
+						<td >
+						<h:outputText id="grandT" value="$ #{clothesBean_i.getClothesPrice(clothesBean_i.convertToList(clothesBean_i.cartclothes))}" />
+						</td>
+					</tr>
+					
+				</tfoot>
+				
+			</table>
+		</h:form>
+			
+			<div class="Clear">&#160;</div>
+			
+			<div class="KeepShopping">
+				<a href="https://store-36xna.mybigcommerce.com" class="btn back">Click here to keep shopping</a>
+			</div>
+			<div class="ProceedToCheckout">
+			<form   action="#{pdfBean.goSuccess()}" target="_blank"  method="POST" style="display:#{clothesBean_i.convertToList(clothesBean_i.cartclothes)}">
+  <script 
+  
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_mlAHYxhM5f0MAxEOyxCEsODN"
+    data-amount="999"
+    data-name="Demo Site"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+
+		
+				
+				
+			</div>
+			<div class="clear"></div>
+			
+			</form>
+			
+			
+		</div>
+
+		
+		
+		
+		
+
+		<div style="display: none">
+			<p class="InfoMessage Message">
+				<strong>There are no products in your cart.</strong>
+			</p>
+			To add a product to your cart, first browse for it or use the search box and then click its &quot;Add to Cart&quot; button.
+			<br /><br />
+			<a href="https://store-36xna.mybigcommerce.com/" class="btn back">Continue Shopping</a>
+			
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+			<div class="Block Moveable Panel" id="SuggestiveCartContent" style="display:none;"></div>
+			
+			
+			
+		</div>
+		<div class="clear"></div>
+			
+			
+			
+			
+			
+			</ui:define>
+</ui:composition>

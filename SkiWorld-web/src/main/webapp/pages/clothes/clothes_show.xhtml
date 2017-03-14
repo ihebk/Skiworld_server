@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml"
+                
+                xmlns:p="http://primefaces.org/ui" 
+                >              
+                
+<!--                 xmlns:p="http://richfaces.org/rich" -->
+                	
+			<ui:define name="pageTitle">CLOTHES</ui:define>		
+			<ui:define name="pageWork">
+			
+
+<h:form id="form">
+    <p:dataGrid var="cl" value="#{clothesBean_i.liste}" columns="3" layout="grid"
+        rows="12" paginator="true" id="cars"
+        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+        rowsPerPageTemplate="6,12,16">
+ 
+        <f:facet name="header">
+            Clothes for Sale
+        </f:facet>
+ 
+        <p:panel header="#{cl.name}" style="text-align:center">
+            <h:panelGrid columns="1" style="width:100%">
+                <p:graphicImage name="demo/images/car/#{cl.image}.gif"/> 
+
+                <h:outputText value="#{cl.price}" />
+ 
+                <p:growl id="growl" life="2000" />
+     
+          <p:commandButton value="View Details" id="ajax" update="growl" styleClass="ui-priority-primary" action="#{clothesBean_i.goToDetails()}" >
+          <f:setPropertyActionListener value="#{cl}"
+					target="#{clothesBean_i.selectedclothes}"></f:setPropertyActionListener>
+          </p:commandButton>
+            </h:panelGrid>
+        </p:panel>
+ 
+    </p:dataGrid>
+ 
+<!--     <p:dialog header="Clothes Info" widgetVar="clDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false"> -->
+<!--         <p:outputPanel id="clDetail" style="text-align:center;"> -->
+<!--             <p:panelGrid  columns="2" rendered="#{not empty clothesBean_i.selectedclothes}" columnClasses="label,value"> -->
+<!--                 <f:facet name="header"> -->
+<!--                     <p:graphicImage name="demo/images/car/#{clothesBean_i.selectedclothes.image}-big.gif"/>  -->
+<!--                 </f:facet> -->
+ 
+<!--                 <h:outputText value="Id:" /> -->
+<!--                 <h:outputText value="#{clothesBean_i.selectedclothes.idClothes}" /> -->
+ 
+<!--                 <h:outputText value="name" /> -->
+<!--                 <h:outputText value="#{clothesBean_i.selectedclothes.name}" /> -->
+ 
+                
+ 
+<!--                 <h:outputText value="Price" /> -->
+<!--                 <h:outputText value="$#{clothesBean_i.selectedclothes.price}" /> -->
+<!--             </p:panelGrid> -->
+<!--         </p:outputPanel> -->
+<!--     </p:dialog> -->
+</h:form>
+
+
+<h:form id="formmmm">
+    <p:growl id="msgs" showDetail="true" />
+ 
+    <h:panelGrid columns="2" cellpadding="5">
+ 
+        <p:outputLabel for="button" value="Button:" />
+        <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
+			
+			</h:panelGrid>
+<!-- 			<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold"> -->
+<!--         <p:panelGrid id="display" columns="2" columnClasses="label,value"> -->
+            
+<!--             <h:outputText value="Button:" /> -->
+<!--             <h:outputText value="#{calendarView.date3}"> -->
+<!--                 <f:convertDateTime pattern="MM/dd/yyyy" /> -->
+<!--             </h:outputText> -->
+            
+<!--             </p:panelGrid> -->
+<!--             </p:dialog> -->
+            </h:form>
+			
+			</ui:define>
+</ui:composition>

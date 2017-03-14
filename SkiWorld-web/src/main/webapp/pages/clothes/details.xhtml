@@ -1,0 +1,458 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/template.xhtml">
+                	
+			<ui:define name="pageTitle">Details</ui:define>		
+			<ui:define name="pageWork">
+			
+			<div class="Block Moveable Panel PrimaryProductDetails" id="ProductDetails"  itemtype="http://schema.org/Product">
+	<div class="BlockContent">
+		
+
+		<div class="ProductAside">
+			<div class="ProductThumbWrap">
+				<div class="ProductThumb" style="">
+					<script type="text/javascript"
+ src="../resources/assets/cdn3.bigcommerce.com/r-5924af580213e2aaa2ee2ab9f57b0b1e70b3b54b/javascript/jquery/plugins/fancybox/fancyboxd41d.js?"></script>
+
+
+<div id="LightBoxImages" style="display: none;">
+<a class="iframe"
+ href="../productimagec7d7.html?product_id=91"></a>
+</div>
+
+<script type="text/javascript">
+	//<![CDATA[
+	var originalImages = '';
+	function showProductImageLightBox(TargetedImage) {
+		var currentImage=0;
+		if(TargetedImage) {
+			currentImage = TargetedImage;
+		} else if(CurrentProdThumbImage!='undefined'){
+			currentImage = CurrentProdThumbImage;
+		}
+		if(ShowVariationThumb) {
+			var url = "../productimagee49c.html?product_id=91&amp;image_rule_id=" + encodeURIComponent(ShowVariationThumb);
+		} else {
+			var url = "../productimage2225.html?product_id=91&amp;current_image="+currentImage;
+		}
+		$('#LightBoxImages a').attr("href", url);
+
+		initProductLightBox();
+
+		$('#LightBoxImages a').trigger('click');
+	}
+
+	function initProductLightBox() {
+
+		var w = $(window).width();
+		var h = $(window).height();
+
+		// tiny image box width plus 3 px margin, times the number of tiny images, plus the arrows width
+		var carouselWidth = (64 + 3) * Math.min(10, 2) + 70;
+
+		//the width of the prev and next link
+		var navLinkWidth = 250;
+
+		var requiredNavWidth = Math.max(carouselWidth, navLinkWidth);
+
+		// calculate the width of the widest image after resized to fit the screen.
+		// 200 is the space betewn the window frame and the light box frame.
+		var wr = Math.min(w-200, 900) / 900;
+		var hr = Math.min(h-200, 596) / 596;
+
+		var r = Math.min(wr, hr);
+
+		var imgResizedWidth = Math.round(r * 900);
+		var imgResizedHeight = Math.round(r * 596);
+
+		//calculate the width required for lightbox window
+		var horizontalPadding = 100;
+		var width = Math.min(w-100, Math.max(requiredNavWidth, imgResizedWidth+ horizontalPadding));
+		var height = h-100;
+
+		$('#LightBoxImages a').fancybox({
+			'frameWidth'	: width,
+			'frameHeight'	: height,
+			callbackOnStart : function(){
+   $('.zoomPad').css('z-index',0);
+           },
+           callbackOnClose : function(){
+               $('.zoomPad').css('z-index',90);
+           }
+		});
+	}
+
+	$(document).ready(function() { originalImages = $('#LightBoxImages').html(); });
+	//]]>
+</script>
+
+					<div class="ProductThumbImage" style="width:480px;">
+	<a rel="prodImage" style="margin:auto;" href="../resources/assets/cdn1.bigcommerce.com/server4200/36xna/products/91/images/277/bigstock_carabiner_14390546__47029.1366953724.1280.12804847.jpg?c=2" onclick="showProductImageLightBox(); return false; return false;">
+		<img itemprop="image" src="../resources/assets/cdn1.bigcommerce.com/server4200/36xna/products/91/images/277/bigstock_carabiner_14390546__47029.1366953724.480.4804847.jpg?c=2" alt="Image 1" title="Image 1" />
+	</a>
+</div>
+
+				</div>
+				<p><span>Hover over image to zoom</span></p>
+
+			
+			
+			
+			</div>
+			</div>
+			
+			
+		<!-- Product Details Content -->
+		<div class="ProductMain">
+			<h5 class="brandName" itemprop="brand"  itemtype="http://schema.org/Brand" style="display: ">
+               <center><a itemprop="url" href="../brands/Xtreme.html"><span itemprop="name">Clothes</span></a></center> 
+            </h5>
+            <h1 itemprop="name">#{clothesBean_i.selectedclothes.name}</h1>
+
+            <div class="DetailRow Rating"  style="display: none">
+                <div class="Value">
+                    <div style=" padding-right: 10px; display:  none;" class="FloatLeft">
+                        
+                        <a href="javascript:void(0)" class="reviewFormLink"><img src="../resources/assets/cdn3.bigcommerce.com/r-d7da58bc2fa9ac362219b6ca847b6a0970dcbe51/themes/Outdoor/images/IcoRating0.png" alt="0 Stars" /></a>
+                        <a href="javascript:void(0)" class="ReviewListLink"></a>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+			<div class="ProductPriceWrap">
+				<div class="DetailRow RetailPrice" >
+					
+					<div class="FloatLeft stockIcon "></div>
+					<div class="clear"></div>
+				</div>
+                    <div class="DetailRow PriceRow" itemprop="offers"  itemtype="http://schema.org/Offer" style="">
+					<div class="Value">
+                        <meta itemprop="priceCurrency" content="USD"/>
+                        <meta itemprop="price" content="11"/>
+                        <h2><span>&#160;</span>Price</h2>
+                        <em class="ProductPrice VariationProductPrice">$#{clothesBean_i.selectedclothes.price}</em>
+						
+					</div>
+				</div>
+			</div><!-- ProductPriceWrap -->
+
+			
+
+			<div class="Block Moveable Panel" id="ProductTabs" style="display:none;"></div>
+
+			<div id="prodAccordion">
+				<div class="Block Panel ProductDescription current" id="ProductDescription">
+	<h2><span>&#160;</span>Product Description</h2>
+	<div class="ProductDescriptionContainer prodAccordionContent" itemprop="description">
+		#{clothesBean_i.selectedclothes.description}
+</div>
+
+				<div class="Block Moveable Panel" id="ProductVideos" style="display:none;"></div>
+				<div class="Block Moveable Panel" id="ProductWarranty" style="display:none;"></div>
+				<div class="Block Moveable Panel" id="ProductOtherDetails" style="display:none;"></div>
+				<div class="Block Moveable Panel" id="SimilarProductsByTag" style="display:none;"></div>
+				<div class="Block Panel" id="ProductByCategory">
+	
+				<div class="Block Panel" id="ProductReviews">
+	<h2><span>&#160;</span>Product Reviews</h2>
+	<div class="prodAccordionContent">
+		<div class="BlockContent" style="position:relative">
+	
+	<p class="AlignRight FloatRight" style=""><a href="#" onclick="show_product_review_form(); return false;" class="button" style="margin-bottom: 0;">Write review</a></p>
+	<a id="write_review"></a>
+	<script type="text/javascript">
+		lang.ReviewNoRating = "Please select a rating.";
+		lang.ReviewNoTitle = "Please enter a title for your review.";
+		lang.ReviewNoText = "Please enter some text for your review.";
+		lang.ReviewNoCaptcha = "Please enter the code shown.";
+		lang.ReviewNoEmail = "Please enter your email address.";
+	</script>
+	<form action="http://outdoor-adventures-demo.mybigcommerce.com/postreview.php" style="display: none;" method="post" class="ProductReviewForm"
+		  id="rating_box" onsubmit="return check_product_review_form();">
+		<input type="hidden" name="action" value="post_review"/>
+		<input type="hidden" name="product_id" value="91"/>
+		<input type="hidden" name="throttleToken" value=""/>
+		<h4>Write Your Own Review</h4>
+
+		<div class="FormContainer VerticalFormContainer">
+			<dl class="ProductReviewFormContainer">
+				<dt>How do you rate this product?</dt>
+				<dd>
+					<select name="revrating" class="Field400" id="revrating">
+						<option value="">&#160;</option>
+						<option value="5"
+						>5 stars (best)</option>
+						<option value="4"
+						>4 stars</option>
+						<option value="3"
+						>3 stars (average)</option>
+						<option value="2"
+						>2 stars</option>
+						<option value="1"
+						>1 star (worst)</option>
+					</select>
+				</dd>
+
+				<dt>Write a headline for your review here:</dt>
+				<dd><input name="revtitle" id="revtitle" type="text" class="Textbox Field400"
+						   value=""/></dd>
+
+				<dt>Write your review here:</dt>
+				<dd><textarea name="revtext" id="revtext" class="Field400" rows="8"
+							  cols="50"></textarea></dd>
+
+				<dt style="display: ">Your email:</dt>
+				<dd style="display: ">
+					<input type="text" name="email" id="email" class="Textbox Field400" value=""/>
+					<p class="ReviewEmailHint">We promise to never spam you, and just use your email address to identify you as a valid customer.</p>
+				</dd>
+
+				<dt>Enter your name: (optional)</dt>
+				<dd><input name="revfromname" id="revfromname" type="text" class="Textbox Field400"
+						   value=""/></dd>
+
+				<dd style="display: ">
+					<div class="g-recaptcha" data-sitekey="6LdFfBIUAAAAAGKHODwpKtgroMgBPUqYm1nAjcTi"></div><br/>
+				</dd>
+			</dl>
+			<p class="Submit">
+				<input type="submit" value="Save My Review"/>
+			</p>
+		</div>
+	</form>
+
+	<p style="display: ">
+		This product hasn't received any reviews yet. Be the first to review this product!
+	</p>
+	
+	
+	
+	
+	
+
+	
+
+	
+
+	
+
+	<script type="text/javascript">
+		//<![CDATA[
+		var HideReviewCaptcha = "";
+
+		// Should we automatically open the review form?
+		if ("" == "1") {
+			show_product_review_form();
+		}
+
+		if ("" == "1") {
+			jump_to_product_reviews();
+		}
+		//]]>
+	</script>
+</div>
+	</div>
+</div>
+			</div>
+
+			<div class="ProductDetailsGrid">
+				<div class="DetailRow ProductSKU" style="display: none">
+					<div class="Label">SKU:</div>
+					<div class="Value">
+						<span class="VariationProductSKU" itemprop="sku">
+							
+						</span>
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display: none">
+					<div class="Label">Condition:</div>
+					<div class="Value" itemprop="itemCondition">
+						
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display: ">
+					<div class="Label">Weight:</div>
+					<div class="Value">
+						<span class="VariationProductWeight" itemprop="weight">
+							0.10 KGS
+						</span>
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display: none">
+					<div class="Label">Availability:</div>
+					<div class="Value">
+						
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display: ">
+					<div class="Label">Shipping:</div>
+					<div class="Value">
+						Calculated at checkout
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display:none;">
+					<div class="Label">Minimum Purchase:</div>
+					<div class="Value">
+						 unit(s)
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display:none;">
+					<div class="Label">Maximum Purchase:</div>
+					<div class="Value">
+						 unit(s)
+					</div>
+				</div>
+
+				<div class="DetailRow InventoryLevel" style="display: none;">
+					<div class="Label">:</div>
+					<div class="Value">
+						<span class="VariationProductInventory">
+							
+						</span>
+					</div>
+				</div>
+
+				<div class="DetailRow" style="display: none">
+					<div class="Label">Gift Wrapping:</div>
+					<div class="Value">
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="productAddToCartRight">
+<form method="post"  onsubmit="return check_add_to_cart(this, false) "  enctype="multipart/form-data" id="productDetailsAddToCartForm">
+	<input type="hidden" name="action" value="add" />
+	<input type="hidden" name="product_id" value="91" />
+	<input type="hidden" name="variation_id" class="CartVariationId" value="" />
+	<input type="hidden" name="currency_id" value="" />
+	<div class="ProductDetailsGrid ProductAddToCart">
+		
+		<div class="ProductOptionList">
+			
+		</div>
+		<div class="productAttributeList" style="display:none;"></div>
+		
+		<div class="stockIcon "></div>
+		<div class="OutOfStockMessage">
+			
+		</div>
+
+		<div class="DetailRow" style="display: ">
+			<div class="DetailRow" style="display: ;">
+				<div class="Label">
+					<label>Quantity</label>
+				</div>
+				<div class="Value Quantity">
+					<select id="qty_" name="qty[]" class="Field45 quantityInput" style="">
+    
+	<option selected="selected" value="1">1</option>
+	<option  value="2">2</option>
+	<option  value="3">3</option>
+	<option  value="4">4</option>
+	<option  value="5">5</option>
+	<option  value="6">6</option>
+	<option  value="7">7</option>
+	<option  value="8">8</option>
+	<option  value="9">9</option>
+	<option  value="10">10</option>
+	<option  value="11">11</option>
+	<option  value="12">12</option>
+	<option  value="13">13</option>
+	<option  value="14">14</option>
+	<option  value="15">15</option>
+	<option  value="16">16</option>
+	<option  value="17">17</option>
+	<option  value="18">18</option>
+	<option  value="19">19</option>
+	<option  value="20">20</option>
+	<option  value="21">21</option>
+	<option  value="22">22</option>
+	<option  value="23">23</option>
+	<option  value="24">24</option>
+	<option  value="25">25</option>
+	<option  value="26">26</option>
+	<option  value="27">27</option>
+	<option  value="28">28</option>
+	<option  value="29">29</option>
+	<option  value="30">30</option>
+	
+</select>
+				</div>
+			</div>
+			
+<h:form>
+<h:commandButton value="Add to Cart" class="btn btn-secondary AddCartButton"  action="#{clothesBean_i.addToCart(clothesBean_i.selectedclothes)}" />
+</h:form>
+		
+			
+		</div>
+		<div class="DetailRow" style="display:">
+			<input type="button" class="btn WishListButton" value="Add to Wishlist" style="display:" />
+		</div>
+		<div class="DetailRow BulkDiscountLink" style="display: none;">
+			<div class="Value">
+				<a href="#" onclick="$.iModal({data: $('#ProductDetailsBulkDiscountThickBox').html(), width: 600}); return false;">
+					Buy in bulk and save
+				</a>
+			</div>
+		</div>
+	</div>
+</form>
+<div class="DetailRow">
+	<div class="Clear AddThisButtonBox">
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style " >
+		<a class="addthis_button_facebook"></a><a class="addthis_button_email"></a><a class="addthis_button_print"></a>
+	</div>
+	<script type="text/javascript" async="async" src="../../s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e94ed470ee51e32"></script>
+	<!-- AddThis Button END -->
+</div>
+
+	
+
+</div>
+<div class="clear"></div>
+
+
+
+<script language="javascript" type="text/javascript">//<![CDATA[
+lang.OptionMessage = "";
+lang.VariationSoldOutMessage = "The selected product combination is currently unavailable.";
+lang.InvalidQuantity = "Please enter a valid product quantity.";
+lang.EnterRequiredField = "Please enter the required field(s).";
+lang.InvalidFileTypeJS = "The file type of the file you are trying to upload is not allowed for this field.";
+var ShowAddToCartQtyBox = "1";
+productMinQty=0;productMaxQty=Number.POSITIVE_INFINITY;
+//]]></script>
+
+</div>
+
+			
+			
+			<div class="clear"></div>
+		</div>
+
+		
+
+		<div class="clear"></div>
+	</div>
+			
+			</div>
+			
+</div>			
+</div>
+
+			</ui:define>
+</ui:composition>
