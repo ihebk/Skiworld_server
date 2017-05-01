@@ -29,6 +29,8 @@ public class Clothes implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	private Store store;
+	@ManyToOne
+	private User user;
 	@OneToMany(mappedBy="stores")
 	private List<StoreClothes> storeclothes;
 
@@ -39,6 +41,14 @@ public class Clothes implements Serializable {
 		return this.idClothes;
 	}
 
+	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public void setIdClothes(int idClothes) {
 		this.idClothes = idClothes;
 	}   

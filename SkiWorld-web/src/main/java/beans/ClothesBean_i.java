@@ -15,6 +15,7 @@ import javax.faces.context.FacesContext;
 
 import contracts.ClotheCrudEJBLocal;
 import entities.Clothes;
+import entities.User;
 
 @ManagedBean
 @ApplicationScoped
@@ -38,8 +39,18 @@ public class ClothesBean_i implements Serializable {
 	private List<Clothes> liste = new ArrayList<Clothes>();
 	private Set<Clothes> cartclothes = new HashSet<Clothes>();
 	private int qt=0;
+	private User u = new User();
+	
 
 	
+
+	public User getU() {
+		return u;
+	}
+
+	public void setU(User u) {
+		this.u = u;
+	}
 
 	public int getQt() {
 		return qt;
@@ -146,6 +157,32 @@ public class ClothesBean_i implements Serializable {
 	public String emptycart(){
 		String navTo = "/pages/cart/cart?faces-redirect=true";
 		cartclothes.clear();
+		
+		return navTo;
+		
+	}
+	
+	public String AddToWishlit(Clothes e){
+		String navTo = "/pages/wishlist/wishlist?faces-redirect=true";
+		u.getListclothes().add(e);
+		
+		return navTo;
+		
+	}
+	
+	public String removeClotheWish(Clothes e) {
+		String navTo = "/pages/wishlist/wishlist?faces-redirect=true";
+
+			u.getListclothes().remove(e);
+
+			return navTo;
+		
+
+	}
+	
+	public String emptywish(){
+		String navTo = "/pages/wishlist/wishlist?faces-redirect=true";
+		u.getListclothes().clear();
 		
 		return navTo;
 		

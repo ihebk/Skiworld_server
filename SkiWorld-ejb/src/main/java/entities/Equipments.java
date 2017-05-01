@@ -30,7 +30,8 @@ public class Equipments implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@OneToMany(mappedBy="stores")
 	private List<StoreEquipments> storeequipments;
-	
+	@ManyToOne
+	private User user;
 	@ManyToOne
 	private Store store;
 

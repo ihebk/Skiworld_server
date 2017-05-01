@@ -2,7 +2,9 @@ package entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -50,6 +52,10 @@ public class User implements Serializable {
 	private List<Post> listPost;
 	@OneToMany(mappedBy = "commentOwner")
 	private List<Comment> listComment;
+	@OneToMany(mappedBy = "user")
+	private Set<Clothes> listclothes = new HashSet<Clothes>();
+	@OneToMany(mappedBy = "user")
+	private Set<Equipments> listequi = new HashSet<Equipments>();
 
 	@OneToMany(mappedBy = "event")
 	private List<UserEvent> userevent;
@@ -117,6 +123,24 @@ public class User implements Serializable {
 
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
+	}
+
+	
+	
+	public Set<Clothes> getListclothes() {
+		return listclothes;
+	}
+
+	public void setListclothes(Set<Clothes> listclothes) {
+		this.listclothes = listclothes;
+	}
+
+	public Set<Equipments> getListequi() {
+		return listequi;
+	}
+
+	public void setListequi(Set<Equipments> listequi) {
+		this.listequi = listequi;
 	}
 
 	public String getFirstname() {

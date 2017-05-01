@@ -8,28 +8,49 @@
 			<ui:define name="pageTitle">Wishlist</ui:define>		
 			<ui:define name="pageWork">
 			
-			<h:form id="form">
-    <p:carousel value="#{clothesBean_i.liste}" headerText="My Wishlist" var="cl" itemStyle="text-align:center" responsive="true">
+			<div class="Block Moveable Panel" id="CartHeader">
+	<h1 class="title">
+		
+		Your Wishlist
+	</h1>
+	<h:form rendered="#{clothesBean_i.u.listclothes.size() != 0}" >
+	<h:commandButton class="btn btn-secondary next" action="#{clothesBean_i.emptywish()}" value="Empty Wishlist" />
+	</h:form>
+</div>
+		<h:form>
+				<center><h:graphicImage value="/resources/images/wishlist-empty.jpg" rendered="#{clothesBean_i.u.listclothes.size() == 0}" /></center>	
+			
+			</h:form>
+			
+			<h:form id="form" >
+    <p:carousel value="#{clothesBean_i.convertToList(clothesBean_i.u.listclothes)}" headerText="My Wishlist" var="cl" itemStyle="text-align:center" responsive="true" rendered="#{clothesBean_i.u.listclothes.size() != 0}">
+    
+		
+    
         <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
             <f:facet name="header">
-                <p:graphicImage name="demo/images/car/#{cl.image}.gif"/> 
+                <p:graphicImage  id="product_image" value="#{imageBean.image}" cache="false" styleClass="editor-picture" width="200" height="300" itemprop="image" alt="Image 1" title="Image 1" >
+    <f:param name="productName" value="#{cl.name}" />
+	</p:graphicImage>
             </f:facet>
  
-            <h:outputText value="Id:" />
-            <h:outputText value="#{cl.idClothes}" />
- 
-            <h:outputText value="Year" />
+            <h:outputText value="Name :" />
             <h:outputText value="#{cl.name}" />
  
-            <h:outputText value="Color:" />
-            <h:outputText value="#{cl.description}"/>
+            <h:outputText value="Price :" />
+            <h:outputText value="#{cl.price}" />
  
-            <h:outputText value="Price" />
-            <h:outputText value="$#{cl.price}" />
+            <h:outputText value="Type :" />
+            <h:outputText value="#{cl.type}"/>
+            <center>
+ <h:form>
+	<h:commandButton class="btn btn-secondary next" action="#{clothesBean_i.removeClotheWish(cl)}" value="Remove item" />
+ </h:form>
+        </center>    
         </p:panelGrid>
  
         <f:facet name="footer">
-                In total there are #{clothesBean_i.liste.size()} clothes.
+                In total there are #{clothesBean_i.u.listclothes.size()} clothes.
         </f:facet>
     </p:carousel>
     </h:form>

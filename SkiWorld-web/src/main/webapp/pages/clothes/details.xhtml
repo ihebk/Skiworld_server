@@ -403,7 +403,9 @@
 			
 		</div>
 		<div class="DetailRow" style="display:">
-			<input type="button" class="btn WishListButton" value="Add to Wishlist" style="display:" />
+		<h:form>
+		<h:commandButton action="#{clothesBean_i.AddToWishlit(clothesBean_i.selectedclothes)}" class="btn WishListButton" value="Add to Wishlist" style="display:" />
+			</h:form>
 		</div>
 		<div class="DetailRow BulkDiscountLink" style="display: none;">
 			<div class="Value">
