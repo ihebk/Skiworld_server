@@ -28,7 +28,7 @@ public class ClothesBean_i implements Serializable {
 	@PostConstruct
 	public void init() {
 		liste = clotheCrudEJBLocal.findAllClothes();
-
+		selectedclothes = new Clothes();
 	}
 
 	@EJB
@@ -38,7 +38,6 @@ public class ClothesBean_i implements Serializable {
 	private List<Clothes> liste = new ArrayList<Clothes>();
 	private Set<Clothes> cartclothes = new HashSet<Clothes>();
 	private int qt=0;
-	
 
 	
 

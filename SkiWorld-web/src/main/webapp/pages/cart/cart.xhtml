@@ -83,7 +83,10 @@ $(document).ajaxComplete(function(event,request, settings) {
 <ui:repeat   value="#{clothesBean_i.convertToList(clothesBean_i.cartclothes)}" var="c">
 	<tr>
 		<td class="CartThumb" style="">
-			<a href="http://outdoor-adventures-demo.mybigcommerce.com/foam-rollup-mat/"><img src="https://cdn1.bigcommerce.com/server4200/36xna/products/88/images/274/bigstock_Sleep_Mat_4057796__32042.1366953539.178.178.jpg?c=2" /></a>&#160;
+		<p:graphicImage  id="product_image" value="#{imageBean.image}" cache="false" styleClass="editor-picture" width="170" height="200" itemprop="image" alt="Image 1" title="Image 1" >
+    <f:param name="productName" value="#{c.name}" />
+	</p:graphicImage>
+		
 		</td>
 		<td class="ProductName" colspan="1">
 			<h5><a href="http://outdoor-adventures-demo.mybigcommerce.com/foam-rollup-mat/">#{c.name}</a></h5>

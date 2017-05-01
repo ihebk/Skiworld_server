@@ -25,7 +25,10 @@
  
         <p:panel header="#{cl.name}" style="text-align:center">
             <h:panelGrid columns="1" style="width:100%">
-                <p:graphicImage name="demo/images/car/#{cl.image}.gif"/> 
+                <p:graphicImage  id="product_image" value="#{imageBean.image}" cache="false" styleClass="editor-picture" width="250" height="300">
+    						            <f:param name="productName" value="#{cl.name}" />
+<!--     						clothesBean_i.selectedclothes.name -->
+						</p:graphicImage>
 
                 <h:outputText value="#{cl.price}" />
  

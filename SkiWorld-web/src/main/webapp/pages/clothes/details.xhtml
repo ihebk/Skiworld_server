@@ -2,7 +2,8 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="/template/template.xhtml">
+                template="/template/template.xhtml"
+                xmlns:p="http://primefaces.org/ui">
                 	
 			<ui:define name="pageTitle">Details</ui:define>		
 			<ui:define name="pageWork">
@@ -90,9 +91,12 @@
 </script>
 
 					<div class="ProductThumbImage" style="width:480px;">
-	<a rel="prodImage" style="margin:auto;" href="../resources/assets/cdn1.bigcommerce.com/server4200/36xna/products/91/images/277/bigstock_carabiner_14390546__47029.1366953724.1280.12804847.jpg?c=2" onclick="showProductImageLightBox(); return false; return false;">
-		<img itemprop="image" src="../resources/assets/cdn1.bigcommerce.com/server4200/36xna/products/91/images/277/bigstock_carabiner_14390546__47029.1366953724.480.4804847.jpg?c=2" alt="Image 1" title="Image 1" />
-	</a>
+	<p:graphicImage  id="product_image" value="#{imageBean.image}" cache="false" styleClass="editor-picture" width="400" height="500" itemprop="image" alt="Image 1" title="Image 1" >
+    <f:param name="productName" value="#{clothesBean_i.selectedclothes.name}" />
+	</p:graphicImage>
+	
+	
+	
 </div>
 
 				</div>

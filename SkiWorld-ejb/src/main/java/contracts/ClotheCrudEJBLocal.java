@@ -19,4 +19,6 @@ public interface ClotheCrudEJBLocal {
 	public Clothes findClotheByLabel(String label);
 
 	public List<Clothes> findAllClothes();
+	
+	byte[] findPictureByProductName(String productName);
 }
